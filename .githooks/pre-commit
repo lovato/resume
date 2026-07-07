@@ -4,7 +4,7 @@
 
 echo "$(git diff --cached --name-only)" | grep -qx 'private/career-profile.yaml' || exit 0
 
-if [ ! -d .git-crypt ]; then
+if [ ! -d .git/git-crypt ]; then
   echo ''
   echo 'BLOCKED: private/career-profile.yaml cannot be committed without encryption.'
   echo ''

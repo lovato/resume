@@ -8,7 +8,7 @@ export const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 export const keyPath = process.env.VAULT_KEY_PATH || join(homedir(), '.config/resume/git-crypt.key');
 export const profilePath = join(root, 'private/career-profile.yaml');
 export const templatePath = join(root, 'private/profile.template.yaml');
-export const gitCryptDir = join(root, '.git-crypt');
+export const gitCryptDir = join(root, '.git', 'git-crypt');
 
 export function run(cmd, opts = {}) {
   execSync(cmd, { cwd: root, stdio: 'inherit', ...opts });
