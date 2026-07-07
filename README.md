@@ -61,3 +61,13 @@ Taskfile.yaml
 ```
 
 Print/PDF: click **Print / PDF** or `Ctrl+P`. Print styles drop the toolbar and format links for paper.
+
+## Job fit analysis
+
+Compare a job posting to your resume (ATS + recruiter + consultant). **Tool-agnostic** — works with any LLM or agent.
+
+```bash
+task job-analyze URL='https://...'   # → .job-analysis/prompt.md (paste into any chat)
+```
+
+See [job-fit/README.md](job-fit/README.md).

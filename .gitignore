@@ -16,3 +16,6 @@ public/resume.docx
 # OS / editor
 .DS_Store
 *.log
+
+# job fit analysis (fetched postings)
+.job-analysis/

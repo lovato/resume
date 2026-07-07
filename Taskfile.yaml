@@ -77,3 +77,21 @@ tasks:
     desc: Remove build artifacts and dependencies
     cmds:
       - rm -rf dist .astro node_modules
+
+  job-fetch:
+    desc: "Fetch job posting to .job-analysis/current-posting.txt"
+    cmds:
+      - node scripts/fetch-job-posting.mjs "{{.URL}}"
+    preconditions:
+      - sh: 'test -n "{{.URL}}"'
+        msg: "Set URL=... e.g. task job-fetch URL='https://...'"
+
+  job-analyze:
+    desc: "Bundle resume + job posting into .job-analysis/prompt.md for any LLM"
+    deps: [export-txt]
+    cmds:
+      - |
+        if [ -n "{{.URL}}" ]; then
+          node scripts/fetch-job-posting.mjs "{{.URL}}"
+        fi
+      - node scripts/assemble-job-fit-prompt.mjs
