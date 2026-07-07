@@ -13,6 +13,8 @@ task job-analyze URL='https://example.com/jobs/123'
 
 Instructions for any agent: `job-fit/workflow.md`
 
+Private preferences (encrypted): `private/career-profile.yaml` — see `private/README.md`
+
 ## Resume source
 
 | File | Purpose |

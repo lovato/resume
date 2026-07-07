@@ -95,3 +95,36 @@ tasks:
           node scripts/fetch-job-posting.mjs "{{.URL}}"
         fi
       - node scripts/assemble-job-fit-prompt.mjs
+
+  vault-init:
+    desc: Initialize encrypted private profile vault (first time)
+    cmds:
+      - node scripts/vault-init.mjs
+
+  vault-unlock:
+    desc: Unlock vault with local key (~/.config/resume/git-crypt.key)
+    cmds:
+      - node scripts/vault-unlock.mjs
+
+  vault-lock:
+    desc: Lock vault — encrypt private files in working tree
+    preconditions:
+      - sh: command -v git-crypt >/dev/null
+        msg: Install git-crypt first (see private/README.md)
+    cmds:
+      - git crypt lock
+
+  vault-status:
+    desc: Show vault initialized / locked / key file state
+    cmds:
+      - node scripts/vault-status.mjs
+
+  vault-rotate:
+    desc: New vault key, keep profile content (old key required)
+    cmds:
+      - node scripts/vault-rotate.mjs
+
+  vault-reset:
+    desc: "Destroy vault and start fresh — FORCE=1 task vault-reset"
+    cmds:
+      - node scripts/vault-reset.mjs

@@ -25,6 +25,15 @@
 - **Strategic fit:** [2–4 sentences]
 - **Recommendation:** [Apply / Apply with caveats / Skip / Network first]
 
+## Personal fit
+
+- **Work mode:** [matches remote/hybrid/onsite preference?]
+- **Location / commute:** [...]
+- **Interests & domains:** [...]
+- **Unstated skills that help:** [e.g. Java from private profile]
+- **Dealbreakers triggered:** [none / list]
+- **Would Marco actually want this job?:** [Yes / Maybe / No — why]
+
 ## Requirement match
 
 | Requirement | Evidence in resume | Gap? |

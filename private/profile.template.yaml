@@ -1,0 +1,83 @@
+# Copy to career-profile.yaml after git-crypt init (see private/README.md).
+# This template is public — do not put secrets here.
+
+identity:
+  legal_name: Your Name
+  preferred_name: null # optional
+
+work_preferences:
+  # remote | hybrid | onsite — rank or note strength
+  remote: strongly_preferred # e.g. strongly_preferred | open | avoid
+  hybrid: open
+  onsite: avoid_unless_exceptional
+  max_commute_minutes: null
+  time_zones: [America/Los_Angeles]
+  travel: light_ok # none | light_ok | frequent_ok
+
+location:
+  based_in: Vancouver, WA
+  willing_to_relocate: false
+  requires_visa_sponsorship: false
+
+role_preferences:
+  target_titles:
+    - Senior Software Engineer
+    - Staff Software Engineer
+    - Software Architect
+  track: individual_contributor # ic | management | either
+  company_size: [enterprise, mid] # startup | mid | enterprise | any
+  domains_interested:
+    - platform engineering
+    - distributed systems
+    - IoT
+  domains_avoid:
+    - pure sales engineering
+  contract_or_fulltime: fulltime_preferred
+
+compensation:
+  # Optional — omit keys you do not want to track
+  currency: USD
+  minimum_base: null
+  target_base: null
+  equity_importance: medium # low | medium | high
+  notes: null
+
+skills:
+  # Experience you have but underplay (or omit) on the public resume
+  experienced_not_emphasized:
+    - Java
+  strong_and_want_more:
+    - Python
+    - platform architecture
+  rusty_or_legacy:
+    - null
+  learning_or_curious:
+    - null
+
+dealbreakers:
+  hard:
+    - full-time five-day onsite with no remote path
+  soft:
+    - heavy on-call with no compensation
+    - roles with no architecture influence despite architect title
+
+energy_and_style:
+  # What makes you want to say yes
+  motivates:
+    - technical leadership without people-management track
+    - greenfield platform work
+    - reducing engineer toil (developer experience)
+  drains:
+    - ticket factory with no system ownership
+    - resume-driven development
+
+companies:
+  especially_interested: []
+  neutral: []
+  avoid: []
+
+interview_notes: |
+  Freeform context from agent interviews — family constraints, timeline,
+  "I'd take NVIDIA if...", narrative you won't put on a public resume.
+
+last_updated: null # YYYY-MM-DD

@@ -9,8 +9,11 @@ Evaluate whether the candidate is a fit for a specific role. Read the job postin
 | Job posting | `.job-analysis/current-posting.txt` or user-provided text |
 | Resume (canonical) | `src/content/resume.mdx` |
 | Resume (plain) | `public/resume.txt` |
+| Private profile (optional) | `private/career-profile.yaml` — encrypted; preferences, hidden skills, dealbreakers |
 
-Do **not** invent job requirements not present in the posting. Treat the resume as ground truth — do not assume skills not listed.
+Do **not** invent job requirements not present in the posting. Treat the resume as ground truth for **public** qualifications. Use the private profile for **personal fit** (remote preference, unstated skills, dealbreakers, compensation, motivation).
+
+If `private/career-profile.yaml` is missing or git-crypt locked, say so and analyze from the resume only.
 
 ## Steps
 
@@ -49,6 +52,7 @@ Extract from the posting:
 - True fit vs could-do-it vs stretch vs wrong lane
 - What to lead with in outreach; what to de-emphasize
 - Honest recommendation with reasoning
+- **Personal fit** (if private profile available): remote/hybrid, location, domains, dealbreakers, unstated skills (e.g. Java), compensation floor, energy/motivation — weight these heavily in verdict
 
 ### 3. Deliver the report
 
@@ -59,9 +63,10 @@ Follow [report-template.md](report-template.md). Required:
 3. **ATS** — match (low/medium/high), missing keywords, hard filters
 4. **Recruiter** — advance yes/no, hooks, concerns
 5. **Consultant** — strategic recommendation
-6. **Gap analysis** — table: Requirement | Resume evidence | Gap?
-7. **If not a strong fit** — specific resume edits or skip rationale
-8. **If applying** — 3 tailored talking points
+6. **Personal fit** — remote, location, interests, dealbreakers (skip if no private profile)
+7. **Gap analysis** — table: Requirement | Resume evidence | Gap?
+8. **If not a strong fit** — specific resume edits or skip rationale
+9. **If applying** — 3 tailored talking points
 
 Be direct. Prefer actionable edits over generic advice.
 

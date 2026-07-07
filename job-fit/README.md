@@ -54,3 +54,15 @@ job-fit/
 ## LinkedIn note
 
 LinkedIn often blocks automated fetch. If `job-fetch` warns about a login wall, paste the job description into `.job-analysis/current-posting.txt` and run `task job-analyze`.
+
+## Private career profile (optional)
+
+Preferences that **should not** be on the public resume. Encrypted with git-crypt:
+
+```bash
+task vault-init      # once
+task vault-unlock    # after clone
+task vault-status
+```
+
+See [private/README.md](../private/README.md). When unlocked, `task job-analyze` includes your profile.

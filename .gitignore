@@ -19,3 +19,7 @@ public/resume.docx
 
 # job fit analysis (fetched postings)
 .job-analysis/
+
+# git-crypt keys (never commit)
+*.git-crypt-key
+.git-crypt/
