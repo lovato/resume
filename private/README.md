@@ -3,6 +3,9 @@
 **Public resume** = what recruiters and the internet see.  
 **Private profile** = preferences, hidden skills, dealbreakers — encrypted before GitHub.
 
+⚠️ **`profile.template.yaml` is public on GitHub** — placeholders only, never your real data.  
+Your real profile goes in **`career-profile.yaml`** (encrypted after `task vault-init`).
+
 CI and the static site **never** read this. Only you (with the key) and local agents do.
 
 ## Tasks (you don't need git-crypt syntax)
@@ -25,12 +28,15 @@ Override: `VAULT_KEY_PATH=/path/to/key task vault-unlock`
 ```bash
 sudo apt install git-crypt    # once per machine
 
-task vault-init
+task vault-init             # also installs pre-commit safety hook
 # Edit private/career-profile.yaml (or run profile interview)
 git add private/career-profile.yaml
 git commit -m "Add encrypted career profile"
 git push
 ```
+
+**Important:** Never `git add private/career-profile.yaml` before `task vault-init`.  
+The pre-commit hook blocks plaintext commits. `profile.template.yaml` is public (placeholders only).
 
 ## New machine
 

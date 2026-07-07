@@ -96,10 +96,16 @@ tasks:
         fi
       - node scripts/assemble-job-fit-prompt.mjs
 
+  install-hooks:
+    desc: Install pre-commit hook that blocks unencrypted private profile
+    cmds:
+      - node scripts/install-hooks.mjs
+
   vault-init:
     desc: Initialize encrypted private profile vault (first time)
     cmds:
       - node scripts/vault-init.mjs
+      - node scripts/install-hooks.mjs
 
   vault-unlock:
     desc: Unlock vault with local key (~/.config/resume/git-crypt.key)

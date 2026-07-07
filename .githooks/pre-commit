@@ -1,0 +1,17 @@
+#!/bin/sh
+# Blocks committing private/career-profile.yaml unless git-crypt is initialized.
+# Install: task install-hooks  (runs automatically from task vault-init)
+
+echo "$(git diff --cached --name-only)" | grep -qx 'private/career-profile.yaml' || exit 0
+
+if [ ! -d .git-crypt ]; then
+  echo ''
+  echo 'BLOCKED: private/career-profile.yaml cannot be committed without encryption.'
+  echo ''
+  echo '  task vault-init      # first time — creates vault + key'
+  echo '  task install-hooks   # if you skipped vault-init'
+  echo ''
+  exit 1
+fi
+
+exit 0

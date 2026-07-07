@@ -1,75 +1,51 @@
-# Copy to career-profile.yaml after git-crypt init (see private/README.md).
-# This template is public — do not put secrets here.
+# PUBLIC TEMPLATE — placeholders only. Do not put real preferences here.
+# Copy to career-profile.yaml after `task vault-init`, then fill in the copy (encrypted).
 
 identity:
-  legal_name: Your Name
-  preferred_name: null # optional
+  legal_name: YOUR_NAME_HERE
+  preferred_name: null
 
 work_preferences:
-  # remote | hybrid | onsite — rank or note strength
-  remote: strongly_preferred # e.g. strongly_preferred | open | avoid
-  hybrid: open
-  onsite: avoid_unless_exceptional
+  remote: null          # strongly_preferred | open | avoid
+  hybrid: null
+  onsite: null
   max_commute_minutes: null
-  time_zones: [America/Los_Angeles]
-  travel: light_ok # none | light_ok | frequent_ok
+  time_zones: []
+  travel: null          # none | light_ok | frequent_ok
 
 location:
-  based_in: Vancouver, WA
-  willing_to_relocate: false
-  requires_visa_sponsorship: false
+  based_in: null
+  willing_to_relocate: null
+  requires_visa_sponsorship: null
 
 role_preferences:
-  target_titles:
-    - Senior Software Engineer
-    - Staff Software Engineer
-    - Software Architect
-  track: individual_contributor # ic | management | either
-  company_size: [enterprise, mid] # startup | mid | enterprise | any
-  domains_interested:
-    - platform engineering
-    - distributed systems
-    - IoT
-  domains_avoid:
-    - pure sales engineering
-  contract_or_fulltime: fulltime_preferred
+  target_titles: []
+  track: null           # ic | management | either
+  company_size: []
+  domains_interested: []
+  domains_avoid: []
+  contract_or_fulltime: null
 
 compensation:
-  # Optional — omit keys you do not want to track
-  currency: USD
+  currency: null
   minimum_base: null
   target_base: null
-  equity_importance: medium # low | medium | high
+  equity_importance: null
   notes: null
 
 skills:
-  # Experience you have but underplay (or omit) on the public resume
-  experienced_not_emphasized:
-    - Java
-  strong_and_want_more:
-    - Python
-    - platform architecture
-  rusty_or_legacy:
-    - null
-  learning_or_curious:
-    - null
+  experienced_not_emphasized: []
+  strong_and_want_more: []
+  rusty_or_legacy: []
+  learning_or_curious: []
 
 dealbreakers:
-  hard:
-    - full-time five-day onsite with no remote path
-  soft:
-    - heavy on-call with no compensation
-    - roles with no architecture influence despite architect title
+  hard: []
+  soft: []
 
 energy_and_style:
-  # What makes you want to say yes
-  motivates:
-    - technical leadership without people-management track
-    - greenfield platform work
-    - reducing engineer toil (developer experience)
-  drains:
-    - ticket factory with no system ownership
-    - resume-driven development
+  motivates: []
+  drains: []
 
 companies:
   especially_interested: []
@@ -77,7 +53,6 @@ companies:
   avoid: []
 
 interview_notes: |
-  Freeform context from agent interviews — family constraints, timeline,
-  "I'd take NVIDIA if...", narrative you won't put on a public resume.
+  Freeform notes from profile interview — only in career-profile.yaml, never here.
 
-last_updated: null # YYYY-MM-DD
+last_updated: null
