@@ -1,0 +1,17 @@
+# dependencies
+node_modules/
+
+# build
+dist/
+public/resume.txt
+
+# astro
+.astro/
+
+# env
+.env
+.env.*
+
+# OS / editor
+.DS_Store
+*.log

@@ -1,0 +1,26 @@
+---
+interface Props {
+  title: string;
+  location: string;
+  email: string;
+  phone: string;
+  linkedin: string;
+}
+
+const { title, location, email, phone, linkedin } = Astro.props;
+const linkedinLabel = linkedin.replace(/^https?:\/\/(www\.)?/, '');
+---
+
+<div class="contact-block">
+  <p class="contact-title">{title}</p>
+  <p class="contact-line">
+    {location}
+    <span class="sep" aria-hidden="true"> | </span>
+    <a href={`tel:${phone.replace(/\D/g, '')}`}>{phone}</a>
+  </p>
+  <p class="contact-line">
+    <a href={`mailto:${email}`}>{email}</a>
+    <span class="sep" aria-hidden="true"> | </span>
+    <a href={linkedin}>{linkedinLabel}</a>
+  </p>
+</div>

@@ -1,0 +1,20 @@
+---
+interface Props {
+  role: string;
+  company: string;
+  dates: string;
+  location?: string;
+  kind?: 'work' | 'education';
+}
+
+const { role, company, dates, location, kind = 'work' } = Astro.props;
+const dateLine = location ? `${dates} | ${location}` : dates;
+const Tag = kind === 'education' ? 'div' : 'div';
+---
+
+<Tag class:list={['entry', kind === 'education' && 'entry-education']} data-kind={kind}>
+  <h3 class="entry-role">{role}</h3>
+  <p class="entry-company">{company}</p>
+  <p class="entry-dates">{dateLine}</p>
+  <slot />
+</Tag>

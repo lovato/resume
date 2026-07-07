@@ -1,0 +1,272 @@
+:root {
+  color-scheme: light dark;
+  --page: #eceae4;
+  --sheet: #fffef9;
+  --ink: #18181b;
+  --ink-muted: #44403c;
+  --ink-faint: #57534e;
+  --rule: #d6d3d1;
+  --accent: #1d4ed8;
+  --accent-soft: #dbeafe;
+  --measure: 42rem;
+  --font-sans: 'IBM Plex Sans', system-ui, sans-serif;
+  --font-serif: 'IBM Plex Serif', Georgia, serif;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --page: #0c0a09;
+    --sheet: #1c1917;
+    --ink: #fafaf9;
+    --ink-muted: #d6d3d1;
+    --ink-faint: #a8a29e;
+    --rule: #44403c;
+    --accent: #93c5fd;
+    --accent-soft: #1e3a5f;
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.5;
+  background: var(--page);
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  margin: 0;
+}
+
+.skip-link {
+  position: absolute;
+  left: -9999px;
+}
+
+.skip-link:focus {
+  left: 1rem;
+  top: 1rem;
+  z-index: 10;
+  padding: 0.5rem 0.75rem;
+  background: var(--sheet);
+  border: 1px solid var(--rule);
+}
+
+.page {
+  min-height: 100dvh;
+  padding: 1.5rem 1rem 3rem;
+}
+
+.toolbar {
+  max-width: var(--measure);
+  margin: 0 auto 0.75rem;
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.65rem;
+  flex-wrap: wrap;
+}
+
+.toolbar a,
+.print-btn {
+  font: inherit;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--accent);
+  background: var(--accent-soft);
+  border: 1px solid transparent;
+  border-radius: 999px;
+  padding: 0.35rem 0.85rem;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.toolbar a:hover,
+.print-btn:hover {
+  filter: brightness(0.97);
+}
+
+.sheet {
+  max-width: var(--measure);
+  margin: 0 auto;
+  padding: 2rem 2rem 2.5rem;
+  background: var(--sheet);
+  border: 1px solid var(--rule);
+  box-shadow:
+    0 1px 2px rgb(24 24 27 / 0.04),
+    0 12px 40px rgb(24 24 27 / 0.06);
+}
+
+.resume h1 {
+  font-family: var(--font-serif);
+  font-size: clamp(1.75rem, 4vw, 2.1rem);
+  font-weight: 600;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  margin: 0 0 0.5rem;
+}
+
+.section-heading {
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--ink);
+  margin: 1.75rem 0 0.65rem;
+  padding-bottom: 0.2rem;
+  border-bottom: 1px solid var(--rule);
+}
+
+.resume-section:first-of-type .section-heading {
+  margin-top: 1rem;
+}
+
+.resume :is(h3, p, ul) {
+  margin: 0;
+}
+
+.resume ul {
+  margin: 0.35rem 0 0.75rem;
+  padding-left: 1.2rem;
+}
+
+.resume li + li {
+  margin-top: 0.15rem;
+}
+
+.resume a {
+  color: var(--accent);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+}
+
+.contact-block {
+  font-size: 0.9rem;
+  line-height: 1.45;
+}
+
+.contact-title {
+  font-weight: 600;
+  color: var(--ink-muted);
+  margin-bottom: 0.2rem;
+}
+
+.contact-line {
+  margin: 0.1rem 0;
+}
+
+.contact-line a {
+  text-decoration: none;
+}
+
+.contact-line a:hover {
+  text-decoration: underline;
+}
+
+.sep {
+  color: var(--ink-faint);
+}
+
+.entry {
+  margin-top: 1.1rem;
+}
+
+.entry-role {
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.entry-company {
+  font-weight: 600;
+  margin-top: 0.1rem;
+}
+
+.entry-dates {
+  font-size: 0.9rem;
+  color: var(--ink-faint);
+  margin: 0.1rem 0 0.4rem;
+}
+
+.entry > :is(p, ul):first-of-type {
+  margin-top: 0.35rem;
+}
+
+.entry-education .entry-role {
+  font-weight: 600;
+}
+
+@media (max-width: 520px) {
+  .sheet {
+    padding: 1.35rem 1.1rem;
+  }
+}
+
+@media print {
+  @page {
+    margin: 0.6in;
+    size: letter;
+  }
+
+  :root {
+    color-scheme: light;
+  }
+
+  html {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 10.5pt;
+    background: white;
+    color: black;
+  }
+
+  .page {
+    padding: 0;
+  }
+
+  .toolbar {
+    display: none;
+  }
+
+  .sheet {
+    max-width: none;
+    margin: 0;
+    padding: 0;
+    border: none;
+    box-shadow: none;
+    background: white;
+  }
+
+  .resume h1,
+  .section-heading,
+  .entry-role,
+  .entry-company {
+    font-family: Arial, Helvetica, sans-serif;
+    color: black;
+  }
+
+  .section-heading {
+    font-size: 11pt;
+    border-bottom-color: #999;
+    page-break-after: avoid;
+  }
+
+  .entry {
+    page-break-inside: avoid;
+  }
+
+  .resume a {
+    color: black;
+    text-decoration: none;
+  }
+
+  .contact-line a::after {
+    content: ' (' attr(href) ')';
+    font-size: 9pt;
+    color: #444;
+  }
+}

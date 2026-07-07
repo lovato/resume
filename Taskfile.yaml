@@ -1,0 +1,67 @@
+version: '3'
+
+vars:
+  NODE_VERSION: '22'
+
+tasks:
+  default:
+    desc: List available tasks
+    silent: true
+    cmds:
+      - task --list
+
+  install:
+    desc: Install npm dependencies
+    sources:
+      - package.json
+      - package-lock.json
+    generates:
+      - node_modules/.package-lock.json
+    cmds:
+      - npm ci
+
+  dev:
+    desc: Dev server at http://localhost:4321/resume/
+    deps: [install, export-txt]
+    cmds:
+      - npm run dev
+
+  export-txt:
+    desc: Generate public/resume.txt for ATS paste/upload
+    sources:
+      - src/content/resume.mdx
+      - scripts/export-text.mjs
+    generates:
+      - public/resume.txt
+    cmds:
+      - node scripts/export-text.mjs
+
+  build:
+    desc: Build static site to dist/
+    deps: [install]
+    sources:
+      - src/**/*
+      - public/**/*
+      - astro.config.mjs
+      - scripts/export-text.mjs
+    generates:
+      - dist/**/*
+    cmds:
+      - npm run build
+
+  preview:
+    desc: Serve the production build locally
+    deps: [build]
+    cmds:
+      - npm run preview
+
+  check:
+    desc: Typecheck the Astro project
+    deps: [install]
+    cmds:
+      - npm run check
+
+  clean:
+    desc: Remove build artifacts and dependencies
+    cmds:
+      - rm -rf dist .astro node_modules

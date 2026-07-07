@@ -1,0 +1,12 @@
+---
+import ResumeLayout from '../layouts/Resume.astro';
+import Resume, { frontmatter } from '../content/resume.mdx';
+import { site } from '../site';
+
+const pageTitle = `${frontmatter.name} — Resume`;
+const description = site.description.replace('Your Name', frontmatter.name);
+---
+
+<ResumeLayout title={pageTitle} description={description} name={frontmatter.name}>
+  <Resume />
+</ResumeLayout>
