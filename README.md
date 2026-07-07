@@ -36,7 +36,8 @@ Also tweak **`src/site.ts`** for page meta defaults.
 The HTML uses a single-column layout, standard section titles, and separates **job title / company / dates** on distinct lines — the pattern most parsers expect. For job applications:
 
 - **Print / PDF** — use the site button; print CSS switches to Arial and strips chrome
-- **Plain text** — download `resume.txt` (regenerated on every build) for paste into ATS forms
+- **Plain text** — download `resume.txt` for paste into ATS forms
+- **Word** — download `resume.docx` for file upload (often the most reliable ATS format)
 
 ## Deploy
 

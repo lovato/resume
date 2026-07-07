@@ -8,7 +8,7 @@
   },
   "scripts": {
     "dev": "astro dev",
-    "prebuild": "node scripts/export-text.mjs",
+    "prebuild": "node scripts/export-text.mjs && node scripts/export-docx.mjs",
     "build": "astro build",
     "preview": "astro preview",
     "check": "astro check"
@@ -19,6 +19,7 @@
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.4",
+    "docx": "^9.5.0",
     "typescript": "^5.8.3"
   }
 }

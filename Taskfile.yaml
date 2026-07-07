@@ -22,7 +22,7 @@ tasks:
 
   dev:
     desc: Dev server at http://localhost:4321/resume/
-    deps: [install, export-txt]
+    deps: [install, export-txt, export-docx]
     cmds:
       - npm run dev
 
@@ -30,11 +30,23 @@ tasks:
     desc: Generate public/resume.txt for ATS paste/upload
     sources:
       - src/content/resume.mdx
+      - scripts/parse-resume.mjs
       - scripts/export-text.mjs
     generates:
       - public/resume.txt
     cmds:
       - node scripts/export-text.mjs
+
+  export-docx:
+    desc: Generate public/resume.docx for ATS upload
+    sources:
+      - src/content/resume.mdx
+      - scripts/parse-resume.mjs
+      - scripts/export-docx.mjs
+    generates:
+      - public/resume.docx
+    cmds:
+      - node scripts/export-docx.mjs
 
   build:
     desc: Build static site to dist/
@@ -43,7 +55,7 @@ tasks:
       - src/**/*
       - public/**/*
       - astro.config.mjs
-      - scripts/export-text.mjs
+      - scripts/**/*
     generates:
       - dist/**/*
     cmds:

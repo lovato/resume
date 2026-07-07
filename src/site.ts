@@ -6,6 +6,7 @@ export const site = {
     'Resume of Marco Lovato — Senior Software Engineer with 15+ years building distributed systems, microservices, and cloud architectures.',
   url: 'https://lovato.github.io/resume/',
   author: 'Marco Lovato',
+  github: 'https://github.com/lovato/resume',
 } as const;
 
 export type SiteConfig = typeof site;

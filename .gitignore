@@ -4,6 +4,7 @@ node_modules/
 # build
 dist/
 public/resume.txt
+public/resume.docx
 
 # astro
 .astro/

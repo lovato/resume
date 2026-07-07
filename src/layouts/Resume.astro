@@ -31,13 +31,37 @@ const canonical = new URL(import.meta.env.BASE_URL, site.url).href;
       rel="stylesheet"
     />
     <title>{title}</title>
+    <script is:inline>
+      (function () {
+        var theme = localStorage.getItem('resume-theme');
+        if (theme === 'light' || theme === 'dark') {
+          document.documentElement.dataset.theme = theme;
+        }
+      })();
+    </script>
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
     <div class="page">
       <header class="toolbar" aria-label="Page tools">
-        <a href={`${import.meta.env.BASE_URL}/resume.txt`} download>Plain text</a>
-        <button type="button" class="print-btn" data-print>Print / PDF</button>
+        <a
+          class="toolbar-btn"
+          href={site.github}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          GitHub
+        </a>
+        <a class="toolbar-btn" href={`${import.meta.env.BASE_URL}/resume.txt`} download>
+          Plain text
+        </a>
+        <a class="toolbar-btn" href={`${import.meta.env.BASE_URL}/resume.docx`} download>
+          Word
+        </a>
+        <button type="button" class="toolbar-btn" data-theme-toggle>
+          <span data-theme-label>Dark</span>
+        </button>
+        <button type="button" class="toolbar-btn" data-print>Print / PDF</button>
       </header>
       <main id="main" class="resume sheet">
         <slot />
@@ -51,7 +75,33 @@ const canonical = new URL(import.meta.env.BASE_URL, site.url).href;
 </style>
 
 <script is:inline>
-  document.querySelector('[data-print]')?.addEventListener('click', () => {
+  function isDarkTheme() {
+    var root = document.documentElement;
+    if (root.dataset.theme === 'dark') return true;
+    if (root.dataset.theme === 'light') return false;
+    return window.matchMedia('(prefers-color-scheme: dark)').matches;
+  }
+
+  function updateThemeButton() {
+    var dark = isDarkTheme();
+    var btn = document.querySelector('[data-theme-toggle]');
+    var label = document.querySelector('[data-theme-label]');
+    if (label) label.textContent = dark ? 'Light' : 'Dark';
+    if (btn) {
+      btn.setAttribute('aria-label', dark ? 'Switch to light mode' : 'Switch to dark mode');
+    }
+  }
+
+  document.querySelector('[data-theme-toggle]')?.addEventListener('click', function () {
+    var next = isDarkTheme() ? 'light' : 'dark';
+    document.documentElement.dataset.theme = next;
+    localStorage.setItem('resume-theme', next);
+    updateThemeButton();
+  });
+
+  document.querySelector('[data-print]')?.addEventListener('click', function () {
     window.print();
   });
+
+  updateThemeButton();
 </script>
